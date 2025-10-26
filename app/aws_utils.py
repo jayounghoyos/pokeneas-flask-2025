@@ -17,4 +17,5 @@ S3_BUCKET = os.getenv('S3_BUCKET')
 
 def get_image_url(image_name):
     """Construye la URL pública de una imagen en S3"""
-    return f"https://{S3_BUCKET}.s3.amazonaws.com/{image_name}"
+    region = os.getenv('AWS_REGION', 'us-east-1')
+    return f"https://{S3_BUCKET}.s3.{region}.amazonaws.com/{image_name}"
